@@ -1,0 +1,17 @@
+[general]
+name=Derrotero Catastral
+qgisMinimumVersion=3.28
+qgisMaximumVersion=3.99
+description=Generate cadastral traverse (derrotero) documents from parcel polygons
+version=0.1.0
+author=Derrotero Catastral Contributors
+email=placeholder@derrotero-catastral.dev
+repository=https://github.com/placeholder/derrotero-catastral
+tracker=https://github.com/placeholder/derrotero-catastral/issues
+category=Vector
+icon=resources/icon.svg
+experimental=False
+deprecated=False
+tags=cadastre, derrotero, traverse, catastral, parcel
+homepage=https://github.com/placeholder/derrotero-catastral
+hasProcessingProvider=False

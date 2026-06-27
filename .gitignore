@@ -67,6 +67,10 @@ ui_*.py
 *~
 .DS_Store
 
+# QGIS local settings and generated files
+.qgis-settings/
+symbology-style.db
+
 # Virtual environments
 venv/
 .venv/
