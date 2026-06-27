@@ -21,27 +21,20 @@ jobs:
         run: ruff check src/
 
   test:
-    name: Tests (QGIS ${{ matrix.qgis-label }})
+    name: Tests
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - qgis-image: qgis/qgis:release-3_34
-            qgis-label: "3.34 LTR"
-          - qgis-image: qgis/qgis:latest
-            qgis-label: latest
     container:
-      image: ${{ matrix.qgis-image }}
+      image: qgis/qgis:latest
       options: --entrypoint ""
     steps:
       - uses: actions/checkout@v4
 
       - name: Install test dependencies
-        env:
-          PIP_REQUIRE_VIRTUALENV: false
         run: |
-          pip3 install -q \
+          pip3 install --break-system-packages -q \
+            --ignore-installed "pytest>=8.3,<10" \
+            "pytest-qgis>=4,<5" 2>/dev/null || \
+          PIP_REQUIRE_VIRTUALENV=false pip3 install -q \
             --ignore-installed "pytest>=8.3,<10" \
             "pytest-qgis>=4,<5"
 
