@@ -40,8 +40,8 @@ jobs:
       - name: Install test dependencies
         run: |
           pip3 install --break-system-packages -q \
-            pytest==9.0.3 \
-            pytest-qgis==4.0.1
+            --ignore-installed "pytest>=8.3,<10" \
+            "pytest-qgis>=4,<5"
 
       - name: Run tests
         run: xvfb-run pytest tests/ -v
