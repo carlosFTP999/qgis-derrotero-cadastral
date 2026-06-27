@@ -1,0 +1,3 @@
+{% for s in segmentos %}
+Al {{ s.orientacion }}, por el lado entre los vértices V{{ s.v_origen + 1 }}({{ "%.2f"|format(s.x1) }}; {{ "%.2f"|format(s.y1) }}) y V{{ s.v_destino + 1 }}({{ "%.2f"|format(s.x2) }}; {{ "%.2f"|format(s.y2) }}), en una distancia de {{ "%.3f"|format(s.distancia) }} metros{% if s.colindancia_display %}, linda con {{ s.colindancia_display }}{% endif %}.
+{% endfor %}

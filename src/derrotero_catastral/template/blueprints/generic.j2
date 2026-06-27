@@ -1,0 +1,4 @@
+| # | Vértices | Coord X | Coord Y | Dist (m) | Azimut | Rumbo | Orientación | Colindancia |
+{% for s in segmentos %}
+| {{ loop.index }} | V{{ s.v_origen+1 }}→V{{ s.v_destino+1 }} | {{ "%.2f"|format(s.x1) }}→{{ "%.2f"|format(s.x2) }} | {{ "%.2f"|format(s.y1) }}→{{ "%.2f"|format(s.y2) }} | {{ "%.3f"|format(s.distancia) }} | {{ "%.1f"|format(s.azimut) }}° | {{ s.rumbo }} | {{ s.orientacion }} | {{ s.colindancia_display or '-' }} |
+{% endfor %}

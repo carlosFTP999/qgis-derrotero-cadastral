@@ -1,0 +1,8 @@
+{% for s in segmentos %}
+Lindero {{ loop.index }}: Del punto {{ s.v_origen + 1 }} al punto {{ s.v_destino + 1 }}
+Distancia: {{ "%.2f"|format(s.distancia) }} m
+Rumbo: {{ s.rumbo }}
+Orientación: {{ s.orientacion }}
+{% if s.colindancia_ref %}Colindante: {{ s.colindancia_ref }} - {{ s.colindancia_poseedor }}{% endif %}
+
+{% endfor %}
