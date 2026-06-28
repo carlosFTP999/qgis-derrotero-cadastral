@@ -1,0 +1,21 @@
+============================================================
+                     ACTA DE COLINDANCIA
+============================================================
+Referencia Catastral: {{ referencia_catastral }}
+
+------------------------------------------------------------
+                         LINDEROS
+------------------------------------------------------------
+{% for s in segmentos %}
+LINDERO {{ loop.index }}
+  Del vértice V{{ s.v_origen + 1 }} al vértice V{{ s.v_destino + 1 }}
+  Rumbo: {{ s.azimut|to_quadrant(dms=True) }}
+  Distancia: {{ "%.2f"|format(s.distancia) }} m
+  Colindancia: {{ s.colindancia_display }}
+
+{% endfor %}
+============================================================
+                     DATOS DEL PREDIO
+============================================================
+  Superficie: {{ "%.2f"|format(superficie) }} m²
+  Perímetro: {{ "%.2f"|format(perimetro) }} m
